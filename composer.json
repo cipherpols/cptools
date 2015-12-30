@@ -1,0 +1,23 @@
+{
+  "name": "cipherpols/tools",
+  "description": "Tooling for CipherPols",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "CipherPols",
+      "email": "cp5.ltw@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Cli\\": "src/Cli"
+    }
+  },
+  "require": {
+    "symfony/console": "~3.0",
+    "symfony/event-dispatcher": "~3.0",
+    "symfony/process": "~3.0",
+    "psr/log": "~1.0"
+  }
+}
