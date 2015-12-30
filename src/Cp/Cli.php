@@ -3,7 +3,7 @@
  * File Cli.php
  * @package CipherPols Tools
  */
-namespace Pone;
+namespace Cp;
 
 /**
  * Class Cli
