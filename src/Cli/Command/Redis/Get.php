@@ -12,7 +12,7 @@ use Cli\Command\Output;
  * @author Tuan Duong <duongthaso@gmail.com>
  * @package Cli\Command\Redis
  */
-class Get extends Base
+class Get extends RedisCommand
 {
     /**
      * @inheritdoc

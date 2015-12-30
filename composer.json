@@ -11,13 +11,15 @@
   ],
   "autoload": {
     "psr-4": {
-      "Cli\\": "src/Cli"
+      "Cli\\": "src/Cli",
+      "Cp\\": "src/Cp"
     }
   },
   "require": {
     "symfony/console": "~3.0",
     "symfony/event-dispatcher": "~3.0",
     "symfony/process": "~3.0",
-    "psr/log": "~1.0"
+    "psr/log": "~1.0",
+    "php-curl-class/php-curl-class": "^4.8"
   }
 }

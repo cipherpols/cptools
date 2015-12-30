@@ -13,7 +13,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * Class BaseCommand
+ * Class Redis
  *
  * @author Tuan Duong <duongthaso@gmail.com>
  * @package Cli\Command

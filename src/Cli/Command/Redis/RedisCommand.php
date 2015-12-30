@@ -5,6 +5,7 @@
  */
 namespace Cli\Command\Redis;
 
+use Cli\Command\CommandInterface;
 use Cli\Command\Input;
 use Cli\Command\Output;
 
@@ -13,7 +14,7 @@ use Cli\Command\Output;
  * @author Tuan Duong <duongthaso@gmail.com>
  * @package Cli\Command\Redis
  */
-abstract class Base
+abstract class RedisCommand implements CommandInterface
 {
     /**
      * @var Input
@@ -31,16 +32,6 @@ abstract class Base
     protected $output;
 
     /**
-     * @var
-     */
-    private $redis;
-
-    /**
-     * @return void
-     */
-    abstract public function execute();
-
-    /**
      * @param Input $input
      * @param string $outputFormat
      */
@@ -56,10 +47,5 @@ abstract class Base
     public function getOutput()
     {
         return $this->output;
-    }
-
-    protected function doCommand()
-    {
-
     }
 }

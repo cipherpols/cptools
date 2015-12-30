@@ -1,6 +1,7 @@
 <?php
 /**
  * File Base.php
+ * @author Tuan Duong <duongthaso@gmail.com>
  * @package CipherPols Tools
  */
 namespace Cli\Application;
@@ -12,7 +13,6 @@ use Symfony\Component\Console\Input\InputInterface;
 
 /**
  * Class Base
- * @author Tuan Duong <duongthaso@gmail.com>
  * @package Cli\Application
  */
 class Base extends Application
