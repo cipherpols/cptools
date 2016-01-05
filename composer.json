@@ -16,9 +16,9 @@
     }
   },
   "require": {
-    "symfony/console": "~3.0",
-    "symfony/event-dispatcher": "~3.0",
-    "symfony/process": "~3.0",
+    "symfony/console": "v2.8.0",
+    "symfony/event-dispatcher": "v2.8.0",
+    "symfony/process": "v2.8.0",
     "psr/log": "~1.0",
     "php-curl-class/php-curl-class": "^4.8"
   }
