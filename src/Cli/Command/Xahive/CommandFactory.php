@@ -11,7 +11,7 @@ use Symfony\Component\Console\Input\InputInterface;
 
 /**
  * Class CommandFactory
- * @package Cli\Command\Redis
+ * @package Cli\Command\Xahive
  */
 class CommandFactory
 {

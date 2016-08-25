@@ -8,7 +8,8 @@
  */
 namespace Cli\Command\Xahive;
 
-use Cp\Slack;
+use Cp\Xahive\Notifier;
+use Cp\Xahive\Subscriber;
 use Curl\Curl;
 
 /**
@@ -25,12 +26,28 @@ class Ping extends XahiveCommand
     private $apiResponse;
 
     /**
+     * @var Notifier
+     */
+    private $notifier;
+
+    public function __construct()
+    {
+        $this->notifier = new Notifier();
+        $this->notifier->addSubscriber(new Subscriber\Slack());
+        $this->notifier->addSubscriber(new Subscriber\Email());
+    }
+
+    /**
      * @inheritdoc
      */
     public function execute()
     {
-        $this->requestXahiveApi();
-        if ($this->isDead()) {
+        try {
+            $this->requestXahiveApi();
+            if ($this->isDead()) {
+                $this->notifyToSlack();
+            }
+        } catch (\Exception $ex) {
             $this->notifyToSlack();
         }
     }
@@ -49,7 +66,21 @@ class Ping extends XahiveCommand
      */
     private function isDead()
     {
-        return isset($this->apiResponse->result) && $this->apiResponse->result;
+        return !isset($this->apiResponse->success) || !$this->apiResponse->success;
+    }
+
+    /**
+     * Notify to
+     */
+    private function notify()
+    {
+        $this->notifyToSlack();
+        $this->notifyToEmail();
+    }
+
+    private function notifyToEmail()
+    {
+
     }
 
     /**
@@ -58,10 +89,5 @@ class Ping extends XahiveCommand
     private function notifyToSlack()
     {
         $slack = new Slack();
-        $emoticon = ':slack::zoro:';
-        $slack->notify(
-            Slack::CHANNEL_XAHIVE,
-            sprintf('%sHey! The API is dead! Please take a look!%s', $emoticon, $emoticon)
-        );
     }
 }
